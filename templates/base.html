@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>{% block title %}欢迎光临{% endblock title %} - zhibin's minicms</title>
+	<link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css">
+
+	<style>
+		body {
+			padding-top: 60px;
+		}
+	</style>
+
+	{% block css %}
+
+	{% endblock css %}
+
+	{% block js %}
+
+	{% endblock js %}
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<ul class="nav nav-pills">
+		  <li role="presentation" class="dropdown">
+    		<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+      			Toggle navigation <span class="caret"></span>
+    		</a>
+    		<ul class="dropdown-menu">
+    			{% for column in nav_display_columns %}
+					<li><a href="{{ column.get_absolute_url }}">{{ column.name }}</a></li>
+				{% endfor %}
+    		</ul>
+  		  </li>
+  		  <li>
+  		  	<a href="/">zhibin's minicms</a>
+  		  </li>
+		</ul>
+	</nav>
+
+	<div class="row clearfix" style="margin-left: 20px;">
+		<div>
+			{% block content %}
+				<h1>zhibin's minicms</h1>
+			{% endblock content %}
+		</div>
+	</div>
+
+	<div class="row clearfix" style="padding-top: 20px;">
+		<div>
+			<div class="well well-sm">
+				<div style="text-align: center;">
+					<a href="aboutus/disclaimer.html">免责声明</a>
+					<a href="aboutus/index.html">关于我们</a>
+				</div>
+				<div style="text-align: center;">
+					zhibin's minicms!<br>
+					best minicms!
+				</div>
+				<div style="padding-top: 10px; text-align: center;">
+					zhibin's minicms是用<a href="https://www.djangoproject.com/" target="_blank" rel="nofollow">Django</a>技术开发的站点，托管在<a href="http://bce.baidu.com/" target="_blank" rel="nofollow">百度开放云</a>平台<br>
+ 
+          Copyright &copy; 2018 Powered by zhibin All Rights Reserved.
+				<a href="http://www.miitbeian.gov.cn/" rel="nofollow" target="_blank">暂无备号</a>
+				</div>			
+			</div>
+		</div>
+	</div>
+
+	<script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	{% include "baidutongji.html" %}
+</body>
+</html>
